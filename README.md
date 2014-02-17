@@ -1,52 +1,20 @@
-requirejs-q
-===========
+# requirejs-promise
 
-This project has two components you can use.
-* A wrapper to allow loading RequireJS modules using Q promises (requireQ).
-* A RequireJS plugin to transparently load modules which return Q promises (rq).
+Load async modules that return Promises.
 
-requireQ
-========
+This project is a fork of https://github.com/asengupta/requirejs-q
+based on https://groups.google.com/forum/#!topic/requirejs/DW9A6VxwbA0 .
 
-```
-   var promise = requireQ(["some-module", "another-module"]);
-   promise.spread(function(m1, m2) {
-     console.log("Modules were loaded.");
-  	 console.log(m1);
-  	 console.log(m2);
-   });
-```
+You get a
+* a RequireJS plugin to load modules which returns an object that smells like a promises.
+* an AMD module that fakes a promise interface, in case you don't want to load a Promise library.
 
-rq
-==
 
-An async module which returns a Q promise:
+## Usage
 
-```
-   // async-module.js
-   define([], function() {
-     console.log("This does nothing either...");
-  	  return Q.fcall(function() {return {data: "Again"};});
-   });
-```
+Check the [example](example) folder.
 
-Include it as below:
 
-```
-   require(["rq!async-module"], function(v) {
-     console.log("Loaded another module");
-  	 console.log(v); // v will be the JSON, not the promise
-   });
-```
+## License
 
-Alternatively, you can use requireQ directly, without using rq at all, like so:
-
-```
-   var promise = requireQ(["some-module", "another-module", "async-module"]);
-   promise.spread(function(m1, m2, v) {
-     console.log("Modules were loaded.");
-     console.log(m1);
-  	 console.log(m2);
-     console.log(v); // v will be the JSON
-   });
-```
+[UNLICENSE](LICENSE)
