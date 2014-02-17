@@ -1,4 +1,4 @@
-define(['promise!me'], function(Deferred) {
+define(['promiseme!this'], function(Deferred) {
     'use strict';
     var defer = new Deferred();
     //var defer = Deferred.defer();

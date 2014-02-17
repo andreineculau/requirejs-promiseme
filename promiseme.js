@@ -28,7 +28,7 @@ define([], function() {
 
     return {
         load: function(name, req, onload, config) {
-            if (name === 'me') {
+            if (name === 'this') {
                 onload(Deferred);
             } else {
                 req([name], function (value) {

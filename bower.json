@@ -1,6 +1,6 @@
 {
-  "name": "requirejs-promise",
-  "version": "0.1.0",
+  "name": "requirejs-promiseme",
+  "version": "0.1.1",
   "ignore": [
     "**/.*",
     "bower_components",
