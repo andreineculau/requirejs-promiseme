@@ -7,6 +7,7 @@ define([], function() {
         if (!(this instanceof Deferred)) {
             return new Deferred();
         }
+
         var callback = function() {},
             then = function(fun) {
                 callback = fun;
@@ -27,10 +28,9 @@ define([], function() {
     Deferred.defer = Deferred;
 
     return {
+        defer: Deferred,
         load: function(name, req, onload, config) {
             if (name === 'this') {
-                onload(Deferred());
-            } else if (name === 'that') {
                 onload(Deferred);
             } else {
                 req([name], function (value) {

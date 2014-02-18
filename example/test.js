@@ -1,16 +1,15 @@
-define(['promiseme!this'], function(defer) {
-//Or just get the Deferred "class"
-//define(['promiseme!that'], function(Deferred) {
+define(['promiseme'], function(q) {
+//define(['promiseme'], function(Deferred) {
     'use strict';
+    q = q.defer();
     //var defer = new Deferred();
-    //var defer = Deferred.defer();
 
     document.body.innerHTML = 'Loading module...';
 
     setTimeout(function() {
-        defer.resolve({test:'successful'});
+        q.resolve({test:'successful'});
     }, 3000);
 
-    return defer.promise;
-    //return defer.promise();
+    return q.promise;
+    //return q.promise();
 });
